@@ -79,7 +79,7 @@ def print_tree(file_tree, file_tree_node, path, largest_size, total_size,
             print_tree(file_tree, file_tree[child], child, largest_size,
                        total_size, depth + 1)
 
-
+@contract(directory='str', depth='int', order='bool', returns='None')
 def show_space_list(directory='.', depth=-1, order=True):
     abs_directory = os.path.abspath(directory)
 
@@ -146,7 +146,7 @@ def show_space_list(directory='.', depth=-1, order=True):
     print_tree(file_tree, file_tree[abs_directory], abs_directory,
                largest_size, total_size)
 
-
+@contract(returns='None')
 def main():
     if not args.all:
         show_space_list(args.directory, args.depth,
